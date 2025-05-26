@@ -1,0 +1,16 @@
+services:
+ db:
+  image: postgres:17.5
+  ports:
+   - "5432:5432"
+  networks:
+   - db  
+  environment:
+   POSTGRES_PASSWORD: postgres
+   POSTGRES_USER: postgres
+   PGDATA: /data/postgres
+   POSTGRES_DB: ImagineCars
+  restart: always
+networks:
+ db:
+  driver: bridge
